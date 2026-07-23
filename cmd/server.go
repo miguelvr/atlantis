@@ -99,6 +99,7 @@ const (
 	GHOrganizationFlag               = "gh-org"
 	GHWebhookSecretFlag              = "gh-webhook-secret"               // nolint: gosec
 	GHAllowMergeableBypassApply      = "gh-allow-mergeable-bypass-apply" // nolint: gosec
+	GHMergeQueueEnabledFlag          = "gh-merge-queue-enabled"
 	GiteaBaseURLFlag                 = "gitea-base-url"
 	GiteaTokenFlag                   = "gitea-token"
 	GiteaUserFlag                    = "gitea-user"
@@ -122,6 +123,7 @@ const (
 	PendingApplyStatusFlag           = "pending-apply-status"
 	StatsNamespace                   = "stats-namespace"
 	AllowDraftPRs                    = "allow-draft-prs"
+	EnableExternalStoresFlag         = "enable-external-stores"
 	PortFlag                         = "port"
 	RedisDB                          = "redis-db"
 	RedisHost                        = "redis-host"
@@ -585,6 +587,10 @@ var boolFlags = map[string]boolFlag{
 		description:  "Feature flag to enable functionality to allow mergeable check to ignore apply required check",
 		defaultValue: false,
 	},
+	GHMergeQueueEnabledFlag: {
+		description:  "Enable handling of GitHub merge queue (merge_group) events. When enabled, Atlantis posts success for plan/apply/policy_check on merge group commits so the merge queue can proceed.",
+		defaultValue: false,
+	},
 	GitlabStatusRetryEnabledFlag: {
 		description:  "Enable enhanced retry logic for GitLab pipeline status updates with exponential backoff.",
 		defaultValue: false,
@@ -612,6 +618,10 @@ var boolFlags = map[string]boolFlag{
 	},
 	PendingApplyStatusFlag: {
 		description:  "Set apply job status as pending when there are planned changes that haven't been applied yet. Currently only supported for GitLab.",
+		defaultValue: false,
+	},
+	EnableExternalStoresFlag: {
+		description:  "Enable external storage backends configured in the server-side repo config (external_stores block).",
 		defaultValue: false,
 	},
 	QuietPolicyChecks: {

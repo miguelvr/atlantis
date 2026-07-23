@@ -61,6 +61,7 @@ type UserConfig struct {
 	FailOnPreWorkflowHookError      bool   `mapstructure:"fail-on-pre-workflow-hook-error"`
 	HideUnchangedPlanComments       bool   `mapstructure:"hide-unchanged-plan-comments"`
 	GithubAllowMergeableBypassApply bool   `mapstructure:"gh-allow-mergeable-bypass-apply"`
+	GithubMergeQueueEnabled         bool   `mapstructure:"gh-merge-queue-enabled"`
 	GithubHostname                  string `mapstructure:"gh-hostname"`
 	GithubToken                     string `mapstructure:"gh-token"`
 	GithubTokenFile                 string `mapstructure:"gh-token-file"`
@@ -100,6 +101,7 @@ type UserConfig struct {
 	PendingApplyStatus              bool   `mapstructure:"pending-apply-status"`
 	StatsNamespace                  string `mapstructure:"stats-namespace"`
 	PlanDrafts                      bool   `mapstructure:"allow-draft-prs"`
+	EnableExternalStores            bool   `mapstructure:"enable-external-stores"`
 	Port                            int    `mapstructure:"port"`
 	QuietPolicyChecks               bool   `mapstructure:"quiet-policy-checks"`
 	RedisDB                         int    `mapstructure:"redis-db"`
